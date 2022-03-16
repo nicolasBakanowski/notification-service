@@ -1,11 +1,12 @@
 const MQService = require('../../MQService');
+const sendMessage = require('./sendMessage')
 
 const sendWhatsApp = () => {
   MQService.consumeToQueue('whatsapp-event', async (jsonMessage, ack) => {
     //const message = WAMessage(jsonMessage)
     ack();
-    //const response = await sendMessage(message)
-    
+    const response = await sendMessage()
+    console.log(response)    
     /*
     {
       dateCreated,
