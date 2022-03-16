@@ -1,9 +1,12 @@
 const MQService = require('../../MQService');
-const sendMessage = require('./sendMessage')
+const sendMessage = require('./sendMessage');
+const wspValidation = require('../../../validations')
+
 
 const sendWhatsApp =  () => {
   MQService.consumeToQueue('whatsapp-event', async (jsonMessage, ack) => {
-    //const message = WAMessage(jsonMessage)
+    const message = wspValidation.validate(jsonMessage)
+    if(message){
     ack();
     try {
       const response = await sendMessage()
@@ -11,19 +14,8 @@ const sendWhatsApp =  () => {
     } catch (err) {
       console.log(err, "err")
     }
-    /*
-    {
-      dateCreated,
-      status,
-      errorCode,
-      errorMessage
-    }
-    */
-    //LOGICA DE ENVIADO DE MENSAJE
-    // funcionPropiaDeEnviado(message) aca adentro va la logica del servicio externo
-    
-    //DEVOLVER MENSAJE DE CONFIRMACION AL SERVICIO QUE PIDIO EL REQUEST
-  }
+ 
+  }}
 )};
 
 module.exports = sendWhatsApp;
