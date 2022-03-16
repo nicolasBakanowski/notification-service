@@ -1,3 +1,3 @@
-const sendWhatsApp = require("./integration/sendWhatsApp");
+const sendWhatsApp = require("./integration/events/whatsapp-event/whatsapp-event");
 
 sendWhatsApp()
