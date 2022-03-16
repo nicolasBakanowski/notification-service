@@ -10,10 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "amqplib": "^0.8.0",
-=======
->>>>>>> 6652545888444add76665032b04d2b624e5445b8
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
