@@ -2,7 +2,6 @@ const MQService = require('../../MQService');
 const sendMessage = require('./sendMessage');
 const WspSchema = require('../../../validations/wspValidation')
 
-
 const sendWhatsApp =  () => {
   MQService.consumeToQueue('whatsapp-event', async (jsonMessage, ack) => {
     const message = WspSchema.validate(jsonMessage)
