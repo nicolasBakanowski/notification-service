@@ -1,15 +1,15 @@
 const MQService = require('../../MQService');
-const sendMessage = require('./sendMessage');
+const sendEmail = require('./send-email-notification');
 const EmailSchema = require('../../../schemas/emailSchema')
 
 
-const sendEmail =  () => {
+const emailNotification =  () => {
   MQService.consumeToQueue('email-event', async (jsonMessage, ack) => {
-    const message = EmailSchema.validate(jsonMessage)
+    const email = EmailSchema.validate(jsonMessage)
     ack();
     if (message.error) { console.log("INPUT VALIDATION ERROR", message.error.details[0].message) } else {
       try {
-        const response = await sendMessage(message.value)
+        const response = await sendEmail(email.value)
         console.log(response, "response")
       } catch (err) {
         console.log(err, "err")
@@ -18,4 +18,4 @@ const sendEmail =  () => {
   }
 )};
 
-module.exports = sendEmail;
+module.exports = emailNotification;

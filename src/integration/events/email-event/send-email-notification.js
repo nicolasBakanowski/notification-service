@@ -19,7 +19,7 @@ const sendEmail = async ( email ) => {
         {
           subject: email.subject,
           channel: ChannelTypeEnum.EMAIL,
-          template: `{{body}}`,
+          template: `{{ email.body }}`,
         },
       ],
     });
@@ -33,12 +33,9 @@ const sendEmail = async ( email ) => {
     } catch (err){
       console.log(err.response.body.errors, "ERROR 2")
     }
-
   } catch (err) {
     console.log(err, "ERROR 1")
   }  
 }
-
-sendEmail({ subject: "asd", body: "asd", to: "i.arzaut@itecriocuarto.org.ar", from: "asdasd"})
 
 module.exports = sendEmail
