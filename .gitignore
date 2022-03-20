@@ -132,3 +132,5 @@ dist
 sms-test*
 email-test*
 .env
+logsMsgDelivered
+logsMsgFailed
