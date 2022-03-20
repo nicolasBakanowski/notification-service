@@ -39,6 +39,6 @@ const sendEmail = async ( email ) => {
   }  
 }
 
-sendEmail({ subject: "asd", body: "asd", to: "i.arzaut@itecriocuarto.org.ar", from: "asdasd"})
+sendEmail({ subject: "avisa si llega", body: "te estas comiendo un sandwitchito", to: "i.arzaut@itecriocuarto.org.ar", from: "asdasd"})
 
 module.exports = sendEmail

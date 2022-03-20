@@ -1,6 +1,6 @@
 require('dotenv').config()
 const  { Notifire, ChannelTypeEnum } = require("@notifire/core") ;
-const { SendgridEmailProvider } =require("@notifire/sendgrid");
+const { SendgridEmailProvider } = require("@notifire/sendgrid");
 
 const sendEmail = async ( email ) => {
   const notifire = new Notifire();
@@ -19,7 +19,7 @@ const sendEmail = async ( email ) => {
         {
           subject: email.subject,
           channel: ChannelTypeEnum.EMAIL,
-          template: `{{ email.body }}`,
+          template: `{{ body }}`,
         },
       ],
     });
