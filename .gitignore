@@ -129,5 +129,6 @@ dist
 .pnp.*
 
 
-sms-test.js
-email-test.js
+sms-test*
+email-test*
+.env
