@@ -2,3 +2,5 @@ node_modules/
 docker-compose.yml
 .env*/
 postgresql
+email-test/
+sms-test/

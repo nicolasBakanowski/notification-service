@@ -13,6 +13,7 @@
   "dependencies": {
     "@notifire/core": "^0.3.6-alpha.0",
     "@notifire/sendgrid": "^0.3.6-alpha.0",
+    "@notifire/twilio": "^0.3.6-alpha.0",
     "amqplib": "^0.8.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

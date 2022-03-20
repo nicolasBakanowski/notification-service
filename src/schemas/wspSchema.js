@@ -8,7 +8,6 @@ const WspSchema = Joi.object()
   .keys({    
     to: Joi.string().required().description('receiver wsp number'), 
     body: Joi.string().required().description('message body'),
-    from: Joi.string().required().description('sender wsp number'),
   })
   .unknown()
 
