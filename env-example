@@ -1,21 +1,18 @@
 # Port number
-PORT=3030
+PORT=
 
 #DB
-DB_HOST=localhost
-DB_USER=root
-DB_PWD=154247881Asd%
-DB_NAME=test
+DB_HOST=
+DB_USER=
+DB_PWD=
+DB_NAME=
+DB_DIALECT=
+DB_PORT=
 
-# JWT
-# secret key
-JWT_SECRET=thisisasamplesecret
-# Number of minutes after which an access token expires
-JWT_ACCESS_EXPIRATION_MINUTES=30
+TWILIO_ACCOUNT_SID= 
+TWILIO_AUTH_TOKEN=
+SENDGRID_APIKEY=
 
-# SMTP configuration options for the email service
-SMTP_HOST=email-server
-SMTP_PORT=587
-SMTP_USERNAME=email-server-username
-SMTP_PASSWORD=email-server-password
-EMAIL_FROM=support@yourapp.com
+WSP_FROM=
+EMAIL_FROM=
+SMS_FROM=
