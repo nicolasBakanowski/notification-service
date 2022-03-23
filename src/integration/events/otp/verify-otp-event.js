@@ -2,6 +2,7 @@ const MQService = require('../../MQService');
 
 const generateOTP =  () => {
   MQService.consumeToQueue('send-otp-wa-event', async (jsonMessage, ack) => {
+    const { encodedDetails, otp, check }
     //const waNumber = waNumber.validate(jsonMessage)
     //GENERATE OTP
     //SAVE OTP TO DB

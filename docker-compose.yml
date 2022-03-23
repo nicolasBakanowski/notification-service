@@ -13,6 +13,6 @@ services:
     environment:
       POSTGRES_PASSWORD: devpass
     ports:
-      - 5444:5432
+      - 5432:5432
     networks:
       - backend

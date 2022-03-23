@@ -12,6 +12,7 @@ router.route('/')
         const status = StatusSchema.validate({ ...req.body })
         status.error && res.status( httpStatus.BAD_REQUEST ).send({ errorMessage: status.error })
         try {
+   
             const log = await createLog(status)
             return res.status( httpStatus.CREATED ).send({ message: "Notification was succesfully logged.", log: log})
         } catch (err) {

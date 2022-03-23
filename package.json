@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "start": "npx sequelize-cli db:create; npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate; npx sequelize-cli db:seed:all; node app.js"
+    "start": "npx sequelize-cli db:create; npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate; npx sequelize-cli db:seed:all; cd src && node app.js"
   },
   "keywords": [],
   "author": "",
@@ -31,7 +31,10 @@
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.17.0",
+    "sequelize-cli": "^6.4.1",
     "twilio": "^3.75.1",
     "xss-clean": "^0.1.1"
   },

@@ -134,3 +134,4 @@ email-test*
 .env
 undelivered-messages-logs.json
 delivered-messages-logs.json
+otptest.js
