@@ -1,10 +1,10 @@
 const MQService = require('../../MQService');
 const sendMessage = require('./sendMessage');
-const WspSchema = require('../../../validations/wspValidation')
+const wa = require('../../../validations/wa.validation')
 
 const sendWhatsApp =  () => {
   MQService.consumeToQueue('whatsapp-event', async (jsonMessage, ack) => {
-    const message = WspSchema.validate(jsonMessage)
+    const message = wa.validate(jsonMessage)
     ack();
     if (message.error) { console.log("INPUT VALIDATION ERROR", message.error.details[0].message) } else {
       try {

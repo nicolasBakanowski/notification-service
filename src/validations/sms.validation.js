@@ -4,11 +4,11 @@ const Joi = require('joi');
 
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
-const WspSchema = Joi.object()
+const sms= Joi.object()
   .keys({    
     to: Joi.string().required().description('receiver wsp number'), 
     body: Joi.string().required().description('message body'),
   })
   .unknown()
 
-module.exports = WspSchema
+module.exports = sms
