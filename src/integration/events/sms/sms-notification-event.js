@@ -1,15 +1,15 @@
 const MQService = require('../../MQService');
-const sendSms = require('./send-sms-notification');
-const smsSchema = require('../../../schemas/SmsSchema')
+const sendSms = require('../../notifire/send-sms');
+const smsSchema = require('../../../validations/sms.validation')
 
 
 const smsNotification =  () => {
   MQService.consumeToQueue('sms-notification-event', async (jsonMessage, ack) => {
-    const sms = smsSchema.validate(jsonMessage)
+    const message = smsSchema.validate(jsonMessage)
     ack();
-    if (sms.error) { console.log("INPUT VALIDATION ERROR", sms.error.details[0].message) } else {
+    if (message.error) { console.log("INPUT VALIDATION ERROR", message.error.details[0].message) } else {
       try {
-        const response = await sendSms(sms.value)
+        const response = await sendSms(message.value)
         console.log(response, "response")
       } catch (err) {
         console.log(err, "ERROR")

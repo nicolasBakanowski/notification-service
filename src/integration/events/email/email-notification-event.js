@@ -1,11 +1,10 @@
 const MQService = require('../../MQService');
-const sendEmail = require('./send-email-notification');
-const EmailSchema = require('../../../schemas/emailSchema')
-
+const sendEmail = require('../../notifire/send-email');
+const emailSchema = require('../../../validations/email.validation')
 
 const emailNotification =  () => {
   MQService.consumeToQueue('email-notification-event', async (jsonMessage, ack) => {
-    const email = EmailSchema.validate(jsonMessage)
+    const email = emailSchema.validate(jsonMessage)
     ack();
     if (email.error) { console.log("INPUT VALIDATION ERROR", email.error.details[0].message) } else {
       try {

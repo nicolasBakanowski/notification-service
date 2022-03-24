@@ -1,16 +1,11 @@
-const dotenv = require('dotenv');
-const path = require('path');
 const Joi = require('joi');
 
-dotenv.config({ path: path.join(__dirname, '../../.env') });
-
-const email = Joi.object()
+const emailSchema = Joi.object()
   .keys({    
-    to: Joi.string().required().description('receiver wsp number'), 
-    subject: Joi.string().required.description('subject email'),
-    body: Joi.string().required().description('message body'),
-    from: Joi.string().required().description('sender wsp number'),
-
+    to: Joi.string().description('receiver wsp number').required(), 
+    subject: Joi.string().description('subject email').required(),
+    body: Joi.string().description('message body').required(),
+    from: Joi.string().description('sender wsp number').required(),
   })
   .unknown()
-module.exports = email
+module.exports = emailSchema

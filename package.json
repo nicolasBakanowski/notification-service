@@ -5,8 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "start": "npx sequelize-cli db:create; npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate; npx sequelize-cli db:seed:all; cd src && node app.js"
+    "start": "npx nodemon -r dotenv/config",
+    "start:dev": "npx sequelize-cli db:create; npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate; npx sequelize-cli db:seed:all; cd src && node app.js",
+    "start:prod": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all; cd src && node app.js"
   },
   "keywords": [],
   "author": "",

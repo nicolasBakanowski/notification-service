@@ -1,8 +1,8 @@
 const MQService = require('../../MQService');
-const OTP = require('../../../models/otp')
+const OTP = require('../../../db/models/OTP')
 const otpGenerator = require('otp-generator');
-const addMinutesToDate = require('../../../helpers/addMinutesToDate')
-const { encode } = require("../../..helpers/encryption")
+const { encode } = require("../../../libs/encryption")
+const addMinutesToDate = require('../../../utils/addMinutesToDate')
 
 
 const generateOTP =  () => {

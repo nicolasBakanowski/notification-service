@@ -1,14 +1,14 @@
 const MQService = require('../../MQService');
-const sendMessage = require('./sendMessage');
-const wa = require('../../../validations/wa.validation')
+const sendWhatsApp = require('../../notifire/send-wa');
+const waSchema = require('../../../validations/wa.validation')
 
-const sendWhatsApp =  () => {
+const whatsAppNotification = () => {
   MQService.consumeToQueue('whatsapp-event', async (jsonMessage, ack) => {
-    const message = wa.validate(jsonMessage)
+    const message = waSchema.validate(jsonMessage)
     ack();
     if (message.error) { console.log("INPUT VALIDATION ERROR", message.error.details[0].message) } else {
       try {
-        const response = await sendMessage(message.value)
+        const response = await sendWhatsApp(message.value)
         console.log(response, "response")
       } catch (err) {
         console.log(err, "err")
@@ -17,4 +17,4 @@ const sendWhatsApp =  () => {
   }
 )};
 
-module.exports = sendWhatsApp;
+module.exports = whatsAppNotification;

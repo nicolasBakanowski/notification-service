@@ -2,7 +2,7 @@ require('dotenv').config()
 const  { Notifire, ChannelTypeEnum } = require("@notifire/core") ;
 const { TwilioSmsProvider } = require("@notifire/twilio");
 
-const sendWhatsapp = async ( whatsapp ) => {
+const sendWhatsApp = async ( whatsapp ) => {
   const notifire = new Notifire();
   
   await notifire.registerProvider(
@@ -37,4 +37,4 @@ const sendWhatsapp = async ( whatsapp ) => {
     console.log(err, "ERROR 1")
   }  
 }  
-module.exports = sendWhatsapp
+module.exports = sendWhatsApp
