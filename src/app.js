@@ -5,7 +5,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const messageStatusRoute = require('./routes/message.status.route')
 const app = express();
-console.log(process.env)
 
 const whatsAppNotification = require("./integration/events/whatsapp/wa-notification-event");
 const smsNotification = require("./integration/events/sms/sms-notification-event");
@@ -26,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // enable cors
 app.use(cors({
-    origin: 'https://www.twilio.com'
+    origin: process.env.TWILIO_ORIGIN_URL
 }));
 
 app.use('/message-status', messageStatusRoute);
